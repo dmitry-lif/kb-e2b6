@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KB-E2B6 — Configurator</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Plain scripts (no modules) so this page works when opened directly from disk. Order matters. -->
+    <script defer src="js/catalog.js"></script>
+    <script defer src="js/crs.js"></script>
+    <script defer src="js/protocol.js"></script>
+    <script defer src="js/transport.js"></script>
+    <script defer src="js/app.js"></script>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 40 40" aria-hidden="true">
+          <defs>
+            <linearGradient id="kb-logo" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#3b82f6" />
+              <stop offset="1" stop-color="#06b6d4" />
+            </linearGradient>
+          </defs>
+          <rect width="40" height="40" rx="10" fill="url(#kb-logo)" />
+          <g fill="#fff" opacity="0.65">
+            <circle cx="20" cy="5.5" r="1.4" /><circle cx="34.5" cy="20" r="1.4" />
+            <circle cx="5.5" cy="20" r="1.4" /><circle cx="20" cy="34.5" r="1.4" />
+          </g>
+          <circle cx="20" cy="20" r="10" fill="none" stroke="#fff" stroke-width="2.6" />
+          <line x1="20" y1="20" x2="26" y2="14" stroke="#fff" stroke-width="2.6" stroke-linecap="round" />
+        </svg>
+        <div>
+          <h1>KB-E2B6</h1>
+          <div class="tagline">USB HID Control Interface · Configurator</div>
+        </div>
+      </div>
+      <span id="conn" class="pill disconnected">Not connected</span>
+    </header>
+
+    <div id="unsupported" class="msg error" hidden>
+      This browser cannot talk to USB devices. Open this file in a desktop Chromium-based browser
+      (<b>Chrome</b>, <b>Edge</b>, <b>Brave</b>…). Firefox and Safari don't support WebHID.
+    </div>
+
+    <nav class="toolbar">
+      <button id="btn-connect" class="primary">Connect device</button>
+      <button id="btn-disconnect" hidden>Disconnect</button>
+      <span class="sep"></span>
+      <button id="btn-save" class="save">Save to device</button>
+      <span class="sep"></span>
+      <button id="btn-defaults" title="Fill the form with a ready-made starting setup (built into the firmware).&#10;Only the form changes; click Save to use it.&#10;The device never switches to it on its own.">Load suggested setup</button>
+      <button id="btn-reload" title="Re-read the running configuration into the form">Reload</button>
+      <button id="btn-export" title="Download the form as a .crs file">Export .crs</button>
+      <button id="btn-import" title="Load a .crs file into the form">Import .crs</button>
+      <input id="file" type="file" accept=".crs,application/octet-stream" hidden />
+      <label class="adv-toggle" title="Show wiring and timing settings (purple, marked ⚙). Most setups never need them."><input id="adv-toggle" type="checkbox" /> ⚙ Advanced (wiring &amp; timing)</label>
+    </nav>
+
+    <section id="status" class="status"></section>
+    <section id="messages"></section>
+    <main id="form"></main>
+
+    <details class="log">
+      <summary>Protocol log</summary>
+      <pre id="log"></pre>
+    </details>
+
+    <footer class="muted">
+      Save to device = the device checks the settings, stores them in flash and restarts with them
+      (~2 s). If anything goes wrong, it keeps its previous settings. Nothing leaves this computer.
+      <br />KB-E2B6 · open source by Dmitry Lifshits · MIT OR Apache-2.0.
+    </footer>
+  </body>
+</html>

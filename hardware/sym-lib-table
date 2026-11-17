@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "kb_hw_power")(type "KiCad")(uri "${KIPRJMOD}/kb_hw_power.kicad_sym")(options "")(descr ""))
+  (lib (name "kb_hw_symbols")(type "KiCad")(uri "${KIPRJMOD}/kb_hw_symbols.kicad_sym")(options "")(descr ""))
+)

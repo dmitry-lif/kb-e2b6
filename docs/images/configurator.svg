@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+<title>KB-E2B6 configurator: connected (sketch)</title>
+<desc>Mockup of the KB-E2B6 web configurator (web_config/index.html) after connecting a board: header, toolbar, device status strip, General, Encoders and Panel buttons sections. Labels mirror web_config/js/app.js; layout is approximate.</desc>
+<style>
+.lb{font-size:12px;fill:#4b5563}
+.v{font-size:12px;fill:#111827}
+.vd{font-size:12px;fill:#9ca3af}
+.s{fill:#fff;stroke:#cfd6e0}
+.sd{fill:#f1f5f9;stroke:#cfd6e0}
+.cd{fill:#fff;stroke:#e3e7ee;filter:url(#sh)}
+.sb{fill:#f8fafc;stroke:#e3e7ee}
+.sb2{fill:#fff;stroke:#e3e7ee}
+.st{font-size:10px;font-weight:700;letter-spacing:.06em}
+.h2{font-size:16px;font-weight:600;fill:#111827}
+.h3{font-size:14px;font-weight:600;fill:#111827}
+.nt{font-size:11px;fill:#6b7280}
+.sm{font-size:11px;fill:#4b5563}
+.cnt{font-size:11px;font-weight:500;fill:#4b5563;text-anchor:middle}
+.lk{font-size:12px;font-weight:500;fill:#2563eb;text-anchor:end}
+.bn{fill:#fff;stroke:#cfd6e0}
+.bt{font-size:12px;fill:#111827;text-anchor:middle}
+.kl{font-size:9px;letter-spacing:.06em;fill:#6b7280}
+.mo{font-family:ui-monospace,'Cascadia Mono','SF Mono',Consolas,monospace;font-size:11.5px;fill:#111827}
+.tg{font-size:11.5px;font-weight:500;text-anchor:middle}
+.dot{stroke:#9ca3af;stroke-width:.8;stroke-dasharray:1 1.6}
+.ui{fill:none;stroke:#5f6b7a;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<defs>
+<linearGradient id="kbl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#06b6d4"/></linearGradient>
+<linearGradient id="hero" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f172a"/><stop offset=".55" stop-color="#1e293b"/><stop offset="1" stop-color="#0c3a57"/></linearGradient>
+<radialGradient id="hg" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="1" gradientTransform="translate(995 80) scale(300 70)"><stop offset="0" stop-color="#06b6d4" stop-opacity=".3"/><stop offset=".7" stop-color="#06b6d4" stop-opacity="0"/></radialGradient>
+<radialGradient id="pg" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="1" gradientTransform="translate(600 20) scale(640 230)"><stop offset="0" stop-color="#dbe7fb"/><stop offset=".7" stop-color="#dbe7fb" stop-opacity="0"/></radialGradient>
+<linearGradient id="gsave" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22c55e"/><stop offset="1" stop-color="#16a34a"/></linearGradient>
+<linearGradient id="rule"><stop offset="0" stop-color="#cfd6e0"/><stop offset="1" stop-color="#cfd6e0" stop-opacity="0"/></linearGradient>
+<filter id="sh" x="-5%" y="-10%" width="110%" height="130%"><feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-color="#101828" flood-opacity=".08"/></filter>
+<filter id="hs" x="-5%" y="-30%" width="110%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity=".18"/></filter>
+<filter id="ws" x="-3%" y="-3%" width="106%" height="108%"><feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0f172a" flood-opacity=".12"/></filter>
+<clipPath id="win"><rect x="16" y="14" width="1168" height="732" rx="14"/></clipPath>
+<symbol id="logo" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="url(#kbl)"/><g fill="#fff" opacity=".65"><circle cx="20" cy="5.5" r="1.4"/><circle cx="34.5" cy="20" r="1.4"/><circle cx="5.5" cy="20" r="1.4"/><circle cx="20" cy="34.5" r="1.4"/></g><circle cx="20" cy="20" r="10" fill="none" stroke="#fff" stroke-width="2.6"/><line x1="20" y1="20" x2="26" y2="14" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></symbol>
+<path id="stripe" d="M0,12A12,12 0 0 1 12,0H356A12,12 0 0 1 368,12L367,12A11,9 0 0 0 356,3H12A11,9 0 0 0 1,12Z"/>
+<path id="cv" d="M-3-1.5 0 1.5 3-1.5" fill="none" stroke="#64748b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="chr" d="M-2-4 2 0-2 4" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="chd" d="M-4-2 0 2 4-2" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="i-gen"><rect width="26" height="26" rx="7" fill="#e5e7ea"/><path d="M7,8H19M7,13H19M7,18H19" stroke="#475569" stroke-width="2" stroke-linecap="round"/><g fill="#475569"><circle cx="16" cy="8" r="2.6"/><circle cx="10.5" cy="13" r="2.6"/><circle cx="16" cy="18" r="2.6"/></g></g>
+<g id="i-led"><rect width="26" height="26" rx="7" fill="#fef1dd"/><circle cx="13" cy="13" r="7.5" fill="#f59e0b" opacity=".3"/><circle cx="13" cy="13" r="4.8" fill="#f59e0b"/></g>
+<g id="i-enc"><rect width="26" height="26" rx="7" fill="#ddf0ee"/><circle cx="13" cy="13" r="6.6" fill="none" stroke="#0d9488" stroke-width="2"/><path d="M13,7.6V11.6" stroke="#0d9488" stroke-width="2" stroke-linecap="round"/></g>
+<g id="i-btn"><rect width="26" height="26" rx="7" fill="#e0e9fc"/><rect x="7" y="7" width="12" height="12" rx="3" fill="#1d4fc4"/><rect x="7" y="7" width="12" height="9.5" rx="3" fill="#2563eb"/></g>
+<g id="inuse"><rect width="58" height="17" rx="8.5" fill="#dcfce7"/><circle cx="11" cy="8.5" r="3" fill="#22c55e"/><text x="18" y="12.5" font-size="11" fill="#15803d">In use</text></g>
+</defs>
+<rect x=".5" y=".5" width="1199" height="759" rx="24" fill="#f3f5f8" stroke="#cfd6e0"/>
+<rect x="16" y="14" width="1168" height="732" rx="14" fill="#fff" filter="url(#ws)"/>
+<g clip-path="url(#win)">
+<rect x="16" y="14" width="1168" height="732" fill="#f3f5f8"/>
+<rect x="16" y="72" width="1168" height="674" fill="url(#pg)"/>
+<rect x="16" y="14" width="1168" height="28" fill="#e2e7ee"/>
+<circle cx="36" cy="28" r="5.5" fill="#ef6a5e"/><circle cx="54" cy="28" r="5.5" fill="#f5bf4f"/><circle cx="72" cy="28" r="5.5" fill="#61c554"/>
+<path d="M88,42Q94,42 94,36V26Q94,20 100,20H322Q328,20 328,26V36Q328,42 334,42Z" fill="#f8fafc"/>
+<use href="#logo" x="104" y="24" width="14" height="14"/>
+<text x="125" y="35" font-size="12" fill="#111827">KB-E2B6 — Configurator</text>
+<path class="ui" d="M310,27.5l7,7m0-7l-7,7" stroke-width="1.3"/>
+<path class="ui" d="M350,26V38M344,32H356" stroke-width="1.4"/>
+<rect x="16" y="42" width="1168" height="30" fill="#f8fafc"/>
+<line x1="16" y1="72.5" x2="1184" y2="72.5" stroke="#dde3eb"/>
+<path class="ui" d="M41,57H31M35.5,52.5 31,57 35.5,61.5"/>
+<path class="ui" d="M55,57H65M60.5,52.5 65,57 60.5,61.5" stroke="#b8c0cc"/>
+<path class="ui" d="M89.2,54A5.4,5.4 0 1 0 89.6,59.5M89.5,50.8V54.2H86.1"/>
+<rect x="104" y="47" width="1046" height="20" rx="10" fill="#eceff4"/>
+<path d="M118,52.5h4.5l2.5,2.5v6.5h-7Z" fill="none" stroke="#6b7280" stroke-width="1.1" stroke-linejoin="round"/>
+<text x="132" y="61" font-size="12" fill="#374151">file:///C:/Users/…/web_config/index.html</text>
+<g fill="#5f6b7a"><circle cx="1167" cy="52" r="1.5"/><circle cx="1167" cy="57" r="1.5"/><circle cx="1167" cy="62" r="1.5"/></g>
+<rect x="1173" y="78" width="6" height="300" rx="3" fill="#c3cad4"/>
+<rect x="36" y="80" width="1128" height="44" rx="12" fill="url(#hero)" filter="url(#hs)"/>
+<rect x="36" y="80" width="1128" height="44" rx="12" fill="url(#hg)"/>
+<use href="#logo" x="50" y="87" width="30" height="30"/>
+<text x="92" y="100.5" font-size="17" font-weight="700" letter-spacing=".5" fill="#fff">KB-E2B6</text>
+<text x="92" y="115" font-size="9.5" letter-spacing=".76" fill="#94a3b8">USB HID CONTROL INTERFACE · CONFIGURATOR</text>
+<rect x="1056" y="91" width="94" height="22" rx="11" fill="#fff" fill-opacity=".08" stroke="#fff" stroke-opacity=".14"/>
+<circle cx="1071" cy="102" r="7" fill="#22c55e" opacity=".3"/><circle cx="1071" cy="102" r="4" fill="#22c55e"/>
+<text x="1082" y="106" font-size="12" fill="#bbf7d0">Connected</text>
+<rect x="36" y="132" width="1128" height="32" rx="12" fill="#fff" fill-opacity=".9" stroke="#e3e7ee" filter="url(#sh)"/>
+<rect class="bn" x="44" y="137" width="87" height="22" rx="7"/><text class="bt" x="87.5" y="152">Disconnect</text>
+<line x1="139.5" y1="140" x2="139.5" y2="156" stroke="#e3e7ee"/>
+<rect x="144" y="134" width="125" height="28" rx="10" fill="#22c55e" opacity=".15"/>
+<rect x="147" y="137" width="119" height="22" rx="7" fill="url(#gsave)" stroke="#15803d"/>
+<text x="206.5" y="152" font-size="12" font-weight="600" fill="#fff" text-anchor="middle">Save to device</text>
+<line x1="276.5" y1="140" x2="276.5" y2="156" stroke="#e3e7ee"/>
+<rect class="bn" x="284" y="137" width="146" height="22" rx="7"/><text class="bt" x="357.0" y="152">Load suggested setup</text>
+<rect class="bn" x="438" y="137" width="62" height="22" rx="7"/><text class="bt" x="469.0" y="152">Reload</text>
+<rect class="bn" x="508" y="137" width="86" height="22" rx="7"/><text class="bt" x="551.0" y="152">Export .crs</text>
+<rect class="bn" x="602" y="137" width="86" height="22" rx="7"/><text class="bt" x="645.0" y="152">Import .crs</text>
+<rect x="944" y="139" width="30" height="18" rx="9" fill="#cbd5e1"/>
+<circle cx="953" cy="148" r="7" fill="#fff" stroke="#000" stroke-opacity=".12"/>
+<text x="1154" y="152" font-size="12" fill="#7c3aed" text-anchor="end">⚙ Advanced (wiring &amp; timing)</text>
+<rect x="36" y="172" width="1128" height="38" rx="12" fill="#fff" stroke="#e3e7ee" filter="url(#sh)"/>
+<circle cx="52" cy="191" r="7.5" fill="#22c55e" opacity=".18"/><circle cx="52" cy="191" r="4.5" fill="#22c55e"/>
+<text x="63" y="195.5" font-size="13" font-weight="700" letter-spacing=".4" fill="#111827">KB-E2B6</text>
+<text class="kl" x="146" y="186">SERIAL</text>
+<text class="mo" x="146" y="203">KBE2B6-004A0039…</text>
+<text class="kl" x="282" y="186">FIRMWARE</text>
+<text class="mo" x="282" y="203">0.2.0</text>
+<text class="kl" x="356" y="186">COMPAT</text>
+<text class="mo" x="356" y="203">0x20260216</text>
+<text class="kl" x="450" y="186">CONFIG A</text>
+<line class="dot" x1="450" y1="188.6" x2="496" y2="188.6"/>
+<rect x="450" y="190" width="52" height="17" rx="8.5" fill="#dcfce7"/><text class="tg" fill="#15803d" x="476.0" y="202.5">Active</text>
+<text class="kl" x="526" y="186">CONFIG B</text>
+<line class="dot" x1="526" y1="188.6" x2="572" y2="188.6"/>
+<rect x="526" y="190" width="58" height="17" rx="8.5" fill="#e8edf3"/><text class="tg" fill="#4b5563" x="555.0" y="202.5">Backup</text>
+<text class="kl" x="608" y="186">LED JOURNAL</text>
+<line class="dot" x1="608" y1="188.6" x2="672" y2="188.6"/>
+<text class="mo" x="608" y="203">3 / 256</text>
+<text class="kl" x="986" y="186">FORM</text>
+<rect x="986" y="190" width="164" height="17" rx="8.5" fill="#fef3c7"/><text class="tg" fill="#b45309" x="1068.0" y="202.5">Changed — not saved yet</text>
+<text class="h2" x="38" y="235">General</text>
+<rect x="108" y="230" width="910" height="1" fill="url(#rule)"/><text class="lk" x="1086" y="234.5">Expand all</text><text class="lk" x="1160" y="234.5">Collapse all</text>
+<rect class="cd" x="36" y="246" width="368" height="42" rx="12"/><use href="#stripe" x="36" y="246" fill="#475569"/>
+<use href="#i-gen" x="48" y="255.5"/><text class="h3" x="84" y="265.5">Defaults</text><text class="nt" x="84" y="280">Used wherever a control is set to “Default”</text>
+<use href="#chr" x="386" y="268.5"/>
+<rect class="cd" x="416" y="246" width="368" height="42" rx="12"/><use href="#stripe" x="416" y="246" fill="#f59e0b"/>
+<use href="#i-led" x="428" y="255.5"/><text class="h3" x="464" y="265.5">Controller LEDs</text><text class="nt" x="464" y="280">Button / encoder backlight</text>
+<use href="#chr" x="766" y="268.5"/>
+<text class="h2" x="38" y="313">Encoders</text>
+<rect x="118" y="300.5" width="84" height="17" rx="8.5" fill="#e8edf3"/><text class="cnt" x="160.0" y="312.5">2 of 2 in use</text>
+<rect x="212" y="308" width="806" height="1" fill="url(#rule)"/><text class="lk" x="1086" y="312.5">Expand all</text><text class="lk" x="1160" y="312.5">Collapse all</text>
+<rect class="cd" x="36" y="324" width="368" height="334" rx="12"/><use href="#stripe" x="36" y="324" fill="#0d9488"/>
+<use href="#i-enc" x="48" y="333"/><text class="h3" x="84" y="351">Encoder 1</text><use href="#inuse" x="310" y="337.5"/><use href="#chd" x="386" y="346"/>
+<rect class="sb" x="48" y="368" width="344" height="121" rx="10"/>
+<path fill="#0d9488" d="M58,368A10,10 0 0 0 48,378V479A10,10 0 0 0 58,489L58,488A7,9 0 0 1 51,479V378A7,9 0 0 1 58,369Z"/>
+<text class="st" fill="#0d9488" x="60" y="382">ROTATION</text>
+<text class="lb" x="60" y="403">Turn clockwise</text>
+<rect class="s" x="202" y="389" width="178" height="20" rx="6"/><text class="v" x="211" y="403">Volume up</text><use href="#cv" x="367" y="399"/>
+<text class="lb" x="60" y="427">Turn counter-clockwise</text>
+<rect class="s" x="202" y="413" width="178" height="20" rx="6"/><text class="v" x="211" y="427">Volume down</text><use href="#cv" x="367" y="423"/>
+<text class="lb" x="60" y="451">Key tap per step</text>
+<rect class="s" x="202" y="437" width="178" height="20" rx="6"/><text class="v" x="211" y="451">20 ms</text><use href="#cv" x="367" y="447"/>
+<text class="lb" x="60" y="475">Direction</text>
+<rect class="s" x="202" y="461" width="178" height="20" rx="6"/><text class="v" x="211" y="475">Default (Normal)</text><use href="#cv" x="367" y="471"/>
+<rect class="sb" x="48" y="497" width="344" height="151" rx="10"/>
+<path fill="#64748b" d="M58,497A10,10 0 0 0 48,507V638A10,10 0 0 0 58,648L58,647A7,9 0 0 1 51,638V507A7,9 0 0 1 58,498Z"/>
+<text class="st" fill="#64748b" x="60" y="511">PUSH BUTTON</text>
+<rect class="sb2" x="60" y="518" width="320" height="70" rx="10"/>
+<path fill="#2563eb" d="M70,518A10,10 0 0 0 60,528V578A10,10 0 0 0 70,588L70,587A7,9 0 0 1 63,578V528A7,9 0 0 1 70,519Z"/>
+<text class="st" fill="#2563eb" x="70" y="531">SHORT PRESS</text>
+<text class="lb" x="70" y="551">Action</text>
+<rect class="s" x="202" y="537" width="168" height="20" rx="6"/><text class="v" x="211" y="551">Mute</text><use href="#cv" x="357" y="547"/>
+<text class="lb" x="70" y="575">Modifiers</text>
+<rect class="sd" x="202" y="561" width="168" height="20" rx="6"/><text class="vd" x="211" y="575">None</text><use href="#cv" x="357" y="571"/>
+<rect class="sb2" x="60" y="594" width="320" height="46" rx="10"/>
+<path fill="#ea580c" d="M70,594A10,10 0 0 0 60,604V630A10,10 0 0 0 70,640L70,639A7,9 0 0 1 63,630V604A7,9 0 0 1 70,595Z"/>
+<text class="st" fill="#ea580c" x="70" y="607">LONG PRESS</text>
+<text class="lb" x="70" y="627">Action</text>
+<rect class="s" x="202" y="613" width="168" height="20" rx="6"/><text class="v" x="211" y="627">— Not used —</text><use href="#cv" x="357" y="623"/>
+<rect class="cd" x="416" y="324" width="368" height="42" rx="12"/><use href="#stripe" x="416" y="324" fill="#0d9488"/>
+<use href="#i-enc" x="428" y="333.5"/><text class="h3" x="464" y="343.5">Encoder 2</text><text class="sm" x="464" y="358">CW: Arrow Down · CCW: Arrow Up · Push…</text>
+<use href="#inuse" x="690" y="338"/>
+<use href="#chr" x="766" y="346.5"/>
+<text class="h2" x="38" y="683">Panel buttons</text>
+<rect x="154" y="670.5" width="84" height="17" rx="8.5" fill="#e8edf3"/><text class="cnt" x="196.0" y="682.5">6 of 6 in use</text>
+<rect x="248" y="678" width="770" height="1" fill="url(#rule)"/><text class="lk" x="1086" y="682.5">Expand all</text><text class="lk" x="1160" y="682.5">Collapse all</text>
+<rect class="cd" x="36" y="694" width="368" height="42" rx="12"/><use href="#stripe" x="36" y="694" fill="#2563eb"/>
+<use href="#i-btn" x="48" y="703.5"/><text class="h3" x="84" y="713.5">Button 1</text><text class="sm" x="84" y="728">Short: Play / Pause · Long: Next track</text>
+<use href="#inuse" x="310" y="708"/>
+<use href="#chr" x="386" y="716.5"/>
+<rect class="cd" x="416" y="694" width="368" height="42" rx="12"/><use href="#stripe" x="416" y="694" fill="#2563eb"/>
+<use href="#i-btn" x="428" y="703.5"/><text class="h3" x="464" y="713.5">Button 2</text><text class="sm" x="464" y="728">Short: Next track</text>
+<use href="#inuse" x="690" y="708"/>
+<use href="#chr" x="766" y="716.5"/>
+<rect class="cd" x="796" y="694" width="368" height="42" rx="12"/><use href="#stripe" x="796" y="694" fill="#2563eb"/>
+<use href="#i-btn" x="808" y="703.5"/><text class="h3" x="844" y="713.5">Button 3</text><text class="sm" x="844" y="728">Short: Previous track</text>
+<use href="#inuse" x="1070" y="708"/>
+<use href="#chr" x="1146" y="716.5"/>
+</g>
+<rect x="16.5" y="14.5" width="1167" height="731" rx="13.5" fill="none" stroke="#c3cad5"/>
+</svg>

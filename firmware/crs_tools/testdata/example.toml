@@ -1,0 +1,150 @@
+# ============================================================
+# Example Configuration
+# ============================================================
+#
+# Repeat rule:
+#   - repeat_period_ms = 0 → no repeat
+#   - repeat_period_ms > 0:
+#       * if long_press exists → repeat long_press (after long threshold)
+#       * if long_press absent → repeat short_press
+#
+# Unified timing:
+#   emit → wait repeat_period_ms → emit → ...
+#
+# ============================================================
+
+[toml]
+version = 1
+
+[target]
+fw_compat_id = "0x20260216"
+crs_schema_version = 1
+
+# ------------------------------------------------------------
+# Global Defaults
+# ------------------------------------------------------------
+
+[global]
+scan_hz = 1000
+
+pin_pull_default = "up"
+active_low_default = true
+debounce_ms_default = 20
+long_press_ms_default = 400
+
+# Button emission defaults
+pulse_ms_button_default = 20
+repeat_period_ms_default = 0
+
+# Encoder rotation defaults
+encoder_pulse_ms_default = 4
+encoder_swap_ab_default = true
+encoder_detent_guard_ms_default = 2
+
+# LED persistence / boot policy
+led_state_persist = true
+led_state_on_boot = "on"       # off|on|restore
+
+led_level_persist = true
+led_level_on_boot = 50
+led_level_default = 50
+led_level_step = 5
+led_level_min = 1
+led_level_max = 100
+led_autosave_delay_ms = 2000
+
+
+# ============================================================
+# BUTTONS
+# - panel ids:   1..6
+# - encoder ids: 1..2  (encoder push)
+# ============================================================
+
+# Panel B1 — Play/Pause tap
+[[buttons]]
+kind = "panel"
+id = 1
+enabled = true
+short_action = { cc = { usage = 0x00CD } }
+
+# Panel B2 — Keyboard navigation
+[[buttons]]
+kind = "panel"
+id = 2
+enabled = true
+short_action = { kbd = { mods = 0x00, usage = 0x4F } }
+
+# Panel B3 — Short-repeat only (no long_action)
+[[buttons]]
+kind = "panel"
+id = 3
+enabled = true
+short_action = { cc = { usage = 0x00E9 } }
+repeat_period_ms = 70
+
+# Panel B4 — Short = Mute, Long = Volume+ (repeat applies to long_action)
+[[buttons]]
+kind = "panel"
+id = 4
+enabled = true
+short_action = { cc = { usage = 0x00E2 } }
+long_action  = { cc = { usage = 0x00E9 } }
+repeat_period_ms = 70
+
+# Panel B5 — LED control examples (internal action ids are firmware-defined)
+[[buttons]]
+kind = "panel"
+id = 5
+enabled = true
+short_action = { internal = { id = 0x01 } }
+long_action  = { internal = { id = 0x10 } }
+repeat_period_ms = 30
+
+# Panel B6 — Per-button overrides (active-high + custom timing)
+[[buttons]]
+kind = "panel"
+id = 6
+enabled = true
+active_low = false
+debounce_ms = 35
+long_press_ms = 600
+
+short_action = { cc = { usage = 0x00B5 } }
+long_action  = { cc = { usage = 0x00B6 } }
+
+
+# Encoder push E1 — Mute
+[[buttons]]
+kind = "encoder"
+id = 1
+enabled = true
+short_action = { cc = { usage = 0x00E2 } }
+
+# Encoder push E2 — Enter
+[[buttons]]
+kind = "encoder"
+id = 2
+enabled = true
+short_action = { kbd = { mods = 0x00, usage = 0x28 } }
+
+
+# ============================================================
+# ENCODERS (rotation only)
+# ============================================================
+
+# E1 — Volume knob
+[[encoders]]
+id = 1
+enabled = true
+
+cw_action  = { cc = { usage = 0x00E9 } }
+ccw_action = { cc = { usage = 0x00EA } }
+
+# E2 — Menu navigation encoder
+[[encoders]]
+id = 2
+enabled = true
+
+cw_action  = { kbd = { mods = 0x00, usage = 0x52 } }
+ccw_action = { kbd = { mods = 0x00, usage = 0x51 } }
+

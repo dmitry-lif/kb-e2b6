@@ -1,0 +1,108 @@
+# CRS config (example)
+# Format: firmware/docs/specs/Spec - CRS Format.md, section 4.0
+#
+# Flash to Slot A using:
+#   ./embed_with_cfg.sh --toml ./example.toml
+
+[toml]
+version = 1
+
+[target]
+fw_compat_id = "0x20260216"
+crs_schema_version = 1
+
+[global]
+scan_hz = 1000
+
+pin_pull_default = "up"          # none|up|down
+active_low_default = true
+
+debounce_ms_default = 5
+long_press_ms_default = 600
+
+# Button emission defaults
+pulse_ms_button_default = 50      # 0=tracked-release, else pulsed release in ms
+repeat_period_ms_default = 0      # 0=off, else 20..2000
+
+# Encoder rotation defaults
+encoder_pulse_ms_default = 30     # press duration per step (must be >0)
+encoder_swap_ab_default = true
+encoder_detent_guard_ms_default = 2
+
+# LED persistence / boot policy
+led_state_persist = true
+led_state_on_boot = "restore"    # on|off|restore
+
+led_level_persist = true
+led_level_on_boot = 0             # 0=restore, else 1..100
+led_level_default = 30            # 1..100
+led_level_step = 5                # 1..50
+led_level_min = 10                # 1..100
+led_level_max = 100               # 1..100
+led_autosave_delay_ms = 1500      # debounce flash commits for runtime LED changes
+
+# --- Panel buttons (IDs 1..6) ---
+
+[[buttons]]
+kind = "panel"
+id = 1
+enabled = true
+short_action = { cc = { usage = 0x00CD } }   # Play/Pause
+
+[[buttons]]
+kind = "panel"
+id = 2
+enabled = true
+short_action = { cc = { usage = 0x00E9 } }   # Vol+
+repeat_period_ms = 70
+
+[[buttons]]
+kind = "panel"
+id = 3
+enabled = true
+short_action = { cc = { usage = 0x00EA } }   # Vol-
+repeat_period_ms = 70
+
+# Internal LED/PWM controls (action IDs are firmware-defined; see kb_firmware/src/config/action.rs)
+[[buttons]]
+kind = "panel"
+id = 4
+enabled = true
+short_action = { internal = { id = 0x05 } }  # LEVEL_INC (+step)
+repeat_period_ms = 30
+
+[[buttons]]
+kind = "panel"
+id = 5
+enabled = true
+short_action = { internal = { id = 0x03 } }  # ON
+long_action  = { internal = { id = 0x04 } }  # OFF
+
+[[buttons]]
+kind = "panel"
+id = 6
+enabled = true
+short_action = { internal = { id = 0x01 } }  # TOGGLE
+long_action  = { internal = { id = 0x02 } }  # LEVEL_NEXT
+
+# --- Encoder push buttons (IDs 1..2) ---
+
+[[buttons]]
+kind = "encoder"
+id = 1
+enabled = true
+short_action = { cc = { usage = 0x00E2 } }   # Mute
+
+# --- Encoders (rotation only, IDs 1..2) ---
+
+[[encoders]]
+id = 1
+enabled = true
+cw_action  = { cc = { usage = 0x00E9 } }     # Vol+
+ccw_action = { cc = { usage = 0x00EA } }     # Vol-
+
+[[encoders]]
+id = 2
+enabled = true
+cw_action  = { cc = { usage = 0x00B5 } }     # Next Track
+ccw_action = { cc = { usage = 0x00B6 } }     # Previous Track

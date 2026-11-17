@@ -1,0 +1,23 @@
+[package]
+name = "crs-pack"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["Dmitry Lifshits"]
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "crs-pack"
+path = "src/main.rs"
+
+[dependencies]
+crs-format = { path = "../crs_format" }
+
+anyhow = "1.0"
+bytemuck = { version = "1.16" }
+clap = { version = "4.5", features = ["derive"] }
+serde = { version = "1.0", features = ["derive"] }
+toml = "0.8"
+crc32fast = "1.4"

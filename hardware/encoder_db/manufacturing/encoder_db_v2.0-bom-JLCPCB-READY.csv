@@ -1,0 +1,4 @@
+Comment,Designator,Footprint,JLCPCB Part #
+Conn_01x06,J1,Connector_JST:JST_GH_SM06B-GHS-TB_1x06-1MP_P1.25mm_Horizontal,C51940119
+300R,"R1,R3",Resistor_SMD:R_0603_1608Metric,C23025
+150R,R2,Resistor_SMD:R_0603_1608Metric,C22808

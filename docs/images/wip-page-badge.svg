@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="30" role="img" aria-label="WORK IN PROGRESS">
+  <title>WORK IN PROGRESS: this page still has placeholders</title>
+  <defs>
+    <pattern id="h" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="12" height="12" fill="#ffd400"/>
+      <rect width="6" height="12" fill="#1a1a1a"/>
+    </pattern>
+    <clipPath id="r"><rect width="300" height="30" rx="4"/></clipPath>
+  </defs>
+  <g clip-path="url(#r)">
+    <rect width="300" height="30" fill="url(#h)"/>
+    <rect x="34" width="232" height="30" fill="#ffd400"/>
+  </g>
+  <rect x="0.75" y="0.75" width="298.5" height="28.5" rx="3.5" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="150" y="20" font-family="Verdana,DejaVu Sans,Geneva,sans-serif" font-size="14" font-weight="bold" fill="#1a1a1a" text-anchor="middle" textLength="196" lengthAdjust="spacingAndGlyphs">WORK IN PROGRESS</text>
+</svg>

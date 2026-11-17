@@ -1,0 +1,6 @@
+# KB-E2B6 (USB VID 0xCAFE, PID 0x4002 — same as firmware/kb_firmware/src/text.rs): let the
+# logged-in desktop user open the device's HID nodes, so Chrome/Edge (WebHID) can reach the
+# configuration interface without root.
+# Install with ./install-udev-rule.sh (or copy to /etc/udev/rules.d/ and reload udev).
+SUBSYSTEM=="hidraw", KERNEL=="hidraw*", ATTRS{idVendor}=="cafe", ATTRS{idProduct}=="4002", TAG+="uaccess"
+

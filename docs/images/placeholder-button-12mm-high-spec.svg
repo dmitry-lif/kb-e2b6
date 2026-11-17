@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" role="img" aria-label="Photo placeholder: Reference button: spec">
+<rect x="1" y="1" width="398" height="298" rx="20" fill="#f3f5f8" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="10 8"/>
+<g transform="translate(200.0 114) scale(1.00)" fill="none" stroke="#94a3b8" stroke-width="5" stroke-linejoin="round">
+<path d="M-60 -30h28l10-16h44l10 16h28a8 8 0 0 1 8 8v66a8 8 0 0 1-8 8h-120a8 8 0 0 1-8-8v-66a8 8 0 0 1 8-8z"/>
+<circle cx="0" cy="12" r="24"/>
+</g>
+<text x="200.0" y="229" font-size="30" font-weight="700" fill="#475569" text-anchor="middle" letter-spacing="1">PHOTO PLACEHOLDER</text>
+<text x="200.0" y="269" font-size="22" fill="#64748b" text-anchor="middle">Reference button: spec</text>
+</svg>

@@ -1,0 +1,77 @@
+[package]
+name = "kb-firmware"
+# Reported over WebHID GET_INFO (fw_major/minor/patch).
+version = "2.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["Dmitry Lifshits"]
+
+[features]
+# Flash banking invariant (STM32G474CB): the device MUST run in single bank
+# (option byte DBANK=0). `flash_single_bank`, FLASH_ERASE_PAGE_SIZE=4096 (in
+# boards/e2b6_128k/flash_layout.rs), and the on-chip DBANK bit must all agree.
+# Dual bank is not contiguous (bank 2 @ 0x0804_0000, nothing at 0x0801_0000) and won't fit
+# the firmware in one 64 KiB bank. See firmware/docs/specs/Spec - Flash Banking.md.
+default = ["board_e2b6_128k", "hw_pwm", "flash_single_bank", "usb_cdc"]
+board_e2b6_128k = []
+hw_pwm = []
+flash_single_bank = ["embassy-stm32/single-bank"]
+usb_cdc = []
+
+[[bin]]
+name = "kb-firmware"
+path = "src/main.rs"
+test = false
+bench = false
+
+[dependencies]
+# Embassy core
+embassy-stm32 = { version = "0.5.0", features = [
+    "defmt",
+    "stm32g474cb",
+    "unstable-pac",
+    "memory-x",
+    "time-driver-any",
+    "exti",
+] }
+
+embassy-executor = { version = "0.9.0", features = [
+    "arch-cortex-m",
+    "executor-thread",
+    "defmt",
+] }
+
+embassy-time = { version = "0.5.0", features = [
+    "defmt",
+    "defmt-timestamp-uptime",
+    "tick-hz-32_768",
+] }
+
+embassy-usb = { version = "0.5.0", features = ["defmt"] }
+usbd-hid = "0.8"
+embassy-sync = "0.7"
+heapless = "0.8"
+embassy-futures = "0.1"
+
+# Logging + panic
+defmt = "1.0.1"
+defmt-rtt = "1.0.0"
+panic-probe = { version = "1.0.0", features = ["print-defmt"] }
+
+# Cortex-M runtime
+cortex-m = { version = "0.7.6", features = ["inline-asm", "critical-section-single-core"] }
+cortex-m-rt = "0.7.0"
+
+# Required by embassy (common)
+static_cell = "2"
+
+# Shared CRS v1 wire format (tool + firmware)
+crs-format = { path = "../crs_tools/crs_format" }
+
+# Size-optimized release build. Without it the firmware used ~110 KiB of the 116 KiB region
+# (opt-level 3, no LTO) and could not fit the WebHID configuration feature.
+[profile.release]
+opt-level = "s"
+lto = "fat"
+codegen-units = 1
+debug = 2

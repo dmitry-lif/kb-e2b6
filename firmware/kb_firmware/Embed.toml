@@ -1,0 +1,15 @@
+[default.general]
+chip = "STM32G474CB"
+
+[default.probe]
+protocol = "Swd"
+
+[default.flashing]
+enabled = true
+
+[default.reset]
+enabled = true
+halt_afterwards = false
+
+[default.rtt]
+enabled = true

@@ -1,0 +1,15 @@
+# crs-format/Cargo.toml
+[package]
+name = "crs-format"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["Dmitry Lifshits"]
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+bytemuck = { version = "1.16", features = ["derive"] }
+static_assertions = "1.1"
+
